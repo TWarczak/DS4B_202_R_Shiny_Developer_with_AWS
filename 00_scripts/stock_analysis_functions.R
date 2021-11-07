@@ -31,7 +31,9 @@ function(data) {
     pivot_longer(names_to  = "legend",
                  cols      = adjusted:mavg_long,
                  values_to = "value",
-                 names_ptypes = list(legend = factor(levels = c("adjusted", "mavg_short", "mavg_long")))) %>%
+                 names_ptypes = list(legend = factor(levels = c("adjusted",
+                                                                "mavg_short",
+                                                                "mavg_long")))) %>%
     dplyr::arrange(legend) %>%
     ggplot(aes(date, value, color = legend, group = legend)) +
     geom_line(aes(linetype = legend)) +
